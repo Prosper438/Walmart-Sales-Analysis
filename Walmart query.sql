@@ -70,19 +70,41 @@ ALTER TABLE walmart_sales ADD month_name VARCHAR(15);
 UPDATE walmart_sales
 SET month_name = MONTHNAME(`DATE`);
 
+
+
+
+
+
+
 -- LIST OF UNIQUE CITIES
-SELECT COUNT(DISTINCT City) 
+SELECT DISTINCT City 
 FROM walmart_sales;
+### Query 2: Monthly Sales Trend
+
+| City | 
+|-------|
+| Yangon    |
+| Naypyitaw |
+| Mandalay  | 
+
 
 -- There are 3 distinct cities in the dataset
 SELECT DISTINCT Branch, City
 FROM walmart_sales;
 
+| Branch | City      |
+_______________________
+A        | Yangon    |
+B        | Mandalay  |
+C        | Naypyitaw |
+	
 -- UNIQUE Product line
-SELECT COUNT(DISTINCT(Product_line))
+SELECT COUNT(DISTINCT(Product_line)) AS count_product_line
 FROM walmart_sales;
-# There are six unique product line
 
+| count_product_line | 
+_______________________
+6                      | 
 --  --------------- The Most selling product line ----------
 SELECT MAX(Payment_method)
 FROM walmart_sales;
