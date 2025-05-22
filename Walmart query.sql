@@ -91,13 +91,13 @@ FROM walmart_sales;
 -- There are 3 distinct cities in the dataset
 SELECT DISTINCT Branch, City
 FROM walmart_sales;
-
+/*
 | Branch | City      |
 _______________________
 A        | Yangon    |
 B        | Mandalay  |
 C        | Naypyitaw |
-	
+	*/
 -- UNIQUE Product line
 SELECT COUNT(DISTINCT(Product_line)) AS count_product_line
 FROM walmart_sales;
