@@ -22,6 +22,10 @@ UPDATE  walmart_sales
 SET Rating = 10.0 WHERE `DATE` ="2019-02-15 00:00:00";
 ROLLBACK;
 
+-- Modifying Date data type
+ALTER TABLE walmart_sales
+MODIFY `DATE` DATE
+	
 -- INSERTING INTO NEW TABLE FROM RAW DATA TYPES
 INSERT  walmart_sales
 SELECT * 
@@ -218,5 +222,4 @@ WHEN Unit_price BETWEEN 25.5 AND 60 THEN "Expensive"
 ELSE  "More Expensive"
 END);
 
-ALTER TABLE walmart_sales
-MODIFY `DATE` DATE
+
