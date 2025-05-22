@@ -4,7 +4,7 @@
 This project analyzes the sales data of walmart and it is keen to give key insights and recommendations from insights from an interacive dashboard and SQL queries.
 
 ## Table of Contents.
-
+(Data Sources)[data-sources]
 
 ## Data Sources.
 The data was extracted from the popular data bank KAGGLE. [WalmartSalesData.csv.csv](https://github.com/user-attachments/files/20378237/WalmartSalesData.csv.csv).
@@ -49,5 +49,7 @@ From the analysis of this data, the following insight can be gotten
 - Morning sales can be improved by using early morning promtions like 20% off before 11am e.t.c
 
 ## Conlusion.
+From undegoing this project,we can see how little things affects business sales, and also how little decisions is crucial to business growth. Personally I valued the place of mySQL for <br> data cleaning and getting insights from data.
+Access to the project Excel file can be accessed [here]
 
 
