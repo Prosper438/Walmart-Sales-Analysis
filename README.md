@@ -7,7 +7,7 @@ This project analyzes the sales data of walmart and it is keen to give key insig
 - [Data Sources](#data-sources)
 - [Data Cleaning and Modification](#data-cleaning-modification)
 - [Exploratory Analysis](#Exploratory-Analysis)
-- [Insights from Data](#Insight-from-data)
+- [Insights from data](#Insight-from-data)
 - [Conclusion](#Conclusion)
 ## Data Sources.
 The data was extracted from the popular data bank KAGGLE. [WalmartSalesData.csv.csv](https://github.com/user-attachments/files/20378237/WalmartSalesData.csv.csv).
@@ -51,7 +51,7 @@ From the analysis of this data, the following insight can be gotten
 - So I recommends increase working time on weekends, because from the= data we could see that Saturdays and sunday generate larger revenue than weekdays <br> ( Taking total revenue for saturday and sunday and divide by 2, and taking total revenue for weekdays divided by 5, then we could see weekends are a bit productive in revenue generation).
 - Morning sales can be improved by using early morning promtions like 20% off before 11am e.t.c
 
-## Conlusion.
+## Conclusion.
 From undegoing this project,we can see how little things affects business sales, and also how little decisions is crucial to business growth. Personally I valued the place of mySQL for <br> data cleaning and getting insights from data.
 Access to the project Excel file can be accessed [here]
 
