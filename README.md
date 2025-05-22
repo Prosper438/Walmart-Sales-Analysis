@@ -4,11 +4,11 @@
 This project analyzes the sales data of walmart and it is keen to give key insights and recommendations from insights from an interacive dashboard and SQL queries.
 
 ## Table of Contents.
-[Data Sources](#data-sources)
-[Data Cleaning and Modification](#data-cleaning-modification)
-[Exploratory Analysis](#exploratory-analysis)
-[Insights from Data](#Insight-from-data)
-[Conclusion](#Conclusion)
+- [Data Sources](#data-sources)
+- [Data Cleaning and Modification](#data-cleaning-modification)
+- [Exploratory Analysis](#Exploratory-Analysis)
+- [Insights from Data](#Insight-from-data)
+- [Conclusion](#Conclusion)
 ## Data Sources.
 The data was extracted from the popular data bank KAGGLE. [WalmartSalesData.csv.csv](https://github.com/user-attachments/files/20378237/WalmartSalesData.csv.csv).
 The raw data consists of 17 columns and 1000 rows.
