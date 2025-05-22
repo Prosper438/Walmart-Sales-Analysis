@@ -91,62 +91,117 @@ FROM walmart_sales;
 -- There are 3 distinct cities in the dataset
 SELECT DISTINCT Branch, City
 FROM walmart_sales;
-/*
+
 | Branch | City      |
 _______________________
 A        | Yangon    |
 B        | Mandalay  |
 C        | Naypyitaw |
-	*/
+	
 -- UNIQUE Product line
 SELECT COUNT(DISTINCT(Product_line)) AS count_product_line
 FROM walmart_sales;
 
 | count_product_line | 
 _______________________
-6                      | 
---  --------------- The Most selling product line ----------
-SELECT MAX(Payment_method)
-FROM walmart_sales;
+6                    | 
 
+
+-- Which payment method was used the most?
 SELECT COUNT(payment_method) AS payment_count,Payment_method
 FROM walmart_sales
 GROUP BY Payment_method
 ORDER BY Payment_count DESC;
-# Ewallet is the most used payment method and was used 345 times
+-- Ewallet is the most used payment method and was used 345 times
 
--- Food and beverages were the most product line sold and generated the most gross profit
+| payment_count | Payment_method |     |
+_________________________________
+345       	| Ewallet        |
+344	        | Cash           | 
+	
+311	        | Credit card    |
+
+-- Which Proudct has the most COGS?
+	
 SELECT Product_line,SUM(COGS) AS cogs
 FROM walmart_sales
 GROUP BY Product_line
 ORDER BY cogs DESC;
  
- --  
- -- Food and beverages were the most goods sold
+-- Food and beverages were the most product line sold and generated the most gross profit
+| Product_line         | cogs     |
+|______________________|__________|
+Food and beverages     | 53471.28 |
+Sports and travel      | 52497.93 |
+Electronic accessories | 51750.03 |
+Fashion accessories    | 51719.90 |
+Home and lifestyle     | 51297.06 |
+Health and beauty      | 46851.18 |
+   
+
+-- WHhich product line the most profit
 
 SELECT Product_line, SUM(Gross_income) AS Income
 FROM walmart_sales
 GROUP BY Product_line
 ORDER BY Income;
 
--- Total Revenue per month
-SELECT month_name,SUM(Total) AS Revenue
+| Product line          | Income     |
+|_______________________|____________|
+Health and beauty	| 2342.5590 |
+Home and lifestyle	| 2564.8530 |
+Fashion accessories	| 2585.9950 |
+Electronic accessories	| 2587.5015 |
+Sports and travel	| 2624.8965 |
+Food and beverages	| 2673.5640 |
+
+-- Health and beauty genrated the most income 
+
+
+	
+-- Show Total Revenue per month
+SELECT month_name,SUM(Revenue) AS Revenue
 FROM walmart_sales
 GROUP BY month_name
 ORDER BY Revenue DESC;
--- Health and beauty genrated the most income 
+
+
+| month_name | Income     |
+|_________________________|
+January	     | 116291.912 |
+March	     | 109455.543 |
+February     | 97219.411  |
+
 
 -- COGS BY MONTH
+	
 SELECT month_name,SUM(COGS) AS cogs
 FROM walmart_sales
 GROUP BY month_name
 ORDER BY cogs DESC;
 
+| month_name | cogs      |
+_________________________|
+January	     | 110754.16 |
+March	     | 104243.34 |
+February     | 92589.88  |
+
+	
 --         MOST SELLING PRODUCT LINE ---
 SELECT COUNT(Product_line) AS product_count,Product_line
 FROM walmart_sales
 GROUP BY Product_line
 ORDER BY product_count DESC;
+
+product_count |        Product_line     |
+|_______________________________________|
+178           | Fashion accessories     |
+174           | Food and beverages      |
+170           | Electronic accessories  |
+166           | Sports and travel       |
+160           | Home and lifestyle      |
+152           | Health and beauty       |
+
 
 -- Product line with the highest revenue
 SELECT Product_line,SUM(Total) AS Revenue
@@ -154,12 +209,29 @@ FROM walmart_sales
 GROUP BY Product_line
 ORDER BY Revenue DESC;
 
+| Product_line         | Revenue  |
+|______________________|__________|
+Food and beverages     | 56144.862|
+Sports and travel      | 55122.846|
+Electronic accessories | 54337.551|
+Fashion accessories    | 54305.915|
+Home and lifestyle     | 53861.929|
+Health and beauty      | 49193.763|
+
+	
 -- City with the highest revenue ( Naypyitaw has the highest revenue)
+	
 SELECT City,SUM(Total) AS Revenue
 FROM walmart_sales
 GROUP BY City
 ORDER BY Revenue DESC;
 
+City       | Revenue   |
+_______________________
+Yangon	   |106200.409 |
+Naypyitaw  |110568.748 |
+Mandalay   |106197.709 |
+	
 -- Product with the highest VAT ( Food and beverages has the highest VAT)
 SELECT Product_line,SUM(VAT) AS Total_VAT
 FROM walmart_sales
