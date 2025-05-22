@@ -39,6 +39,8 @@ From the analysis of this data, the following insight can be gotten
 - Concerning the payment method, E wallet was the most used payment method and Credit card was the least used.
 
 
-## Recommendations
--
+## Recommendations 
+- From the dashboard, we could see that female are in front in terms of profit generation and fashion also genrates the most profit which aslo account a big percent <br> of more expensive products, so I believe that
+  more resources should be focused on female fashion accessories.
+- Food aand Beverages products should be pushed more into the market more, as it has potential to compete more with the fashion accessories line, due to the fact it < br > generates more Revenue for all product type than other goods 
 
