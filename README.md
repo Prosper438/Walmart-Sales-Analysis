@@ -22,5 +22,15 @@ Below are the list of new columns added in the existing data with MySQL.
 Modifications were also made on the dataset by changing the column name  for the Total column to Revenue.
 
 ## Exploratory Analysis.
+From the analysis from the data,these questions was asked.
+- How many distinct product line are there?
+- What is the most selling product line
+- What is the most used payment method
+- Which product line generated the most gross profit
+- What is the good that was sold the most
+and alot more which answers will be available in the SQL section of this repository.
 
+## Insights from data.
+From the analysis of this data, the following insight can be gotten
+- 
 
