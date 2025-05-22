@@ -53,6 +53,6 @@ From the analysis of this data, the following insight can be gotten
 
 ## Conclusion.
 From undegoing this project,we can see how little things affects business sales, and also how little decisions is crucial to business growth. Personally I valued the place of mySQL for <br> data cleaning and getting insights from data.
-Access to the project Excel file can be accessed [here]
+Access to the project Excel file can be accessed [here] (https://github.com/Prosper438/Walmart-Sales-Analysis/blob/main/Excel%20sheet%20of%20project.md)
 
 
