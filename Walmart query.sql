@@ -71,9 +71,13 @@ UPDATE walmart_sales
 SET month_name = MONTHNAME(`DATE`);
 
 
-
-
-
+ALTER TABLE walmart_analysis.walmart_sales ADD Product_Type VARCHAR(20);
+UPDATE walmart_sales
+SET Product_Type = 
+(CASE WHEN Unit_price < 25.5 THEN "Less Expensive"
+WHEN Unit_price BETWEEN 25.5 AND 60 THEN "Expensive"
+ELSE  "More Expensive"
+END);
 
 
 -- LIST OF UNIQUE CITIES
@@ -238,32 +242,83 @@ FROM walmart_sales
 GROUP BY Product_line
 ORDER BY Total_VAT DESC;
 
+  Product_line         | Total_vat |         
+__________________________________
+Food and beverages     | 2673.5640 |
+Sports and travel      | 2624.8965 |
+Electronic accessories | 2587.5015 |
+Fashion accessories    | 2585.9950 |
+Home and lifestyle     | 2564.8530 |
+Health and beauty      | 2342.5590 |
+
+	  
 -- Branch sales with respect to average product
-SELECT Branch ,SUM(Quantity)
+SELECT Branch ,SUM(Quantity) AS product_in_stock
 FROM walmart_sales
 GROUP BY Branch
 HAVING SUM(Quantity) > (SELECT AVG(Quantity) FROM walmart_sales);
 
+Branch | product_in_stock |
+___________________________
+A      | 1859
+C      | 1831
+B      | 1820
+	
 -- Most common product line by gender
 SELECT Gender,COUNT(Gender) AS cnt,Product_line 
 FROM walmart_sales
 GROUP BY Product_line,Gender
 ORDER BY Gender,Product_line;
 
+Gender |  cnt |          Product_line 
+______________________________________________
+Female | 84   |	Electronic accessories
+Female | 96   |	Fashion accessories
+Female | 90   |	Food and beverages
+Female | 64   |	Health and beauty
+Female | 79   |	Home and lifestyle
+Female | 88   |	Sports and travel
+Male   | 86   |	Electronic accessories
+Male   | 82   |	Fashion accessories
+Male   | 84   |	Food and beverages
+Male   | 88   |	Health and beauty
+Male   | 81   |	Home and lifestyle
+Male   | 78   |	Sports and travel
+
 -- Average Rating of Each product line
 SELECT ROUND(AVG(Rating),3) AS Avg_Rating, Product_line
 FROM walmart_sales
 GROUP BY Product_line
 ORDER BY 1 ASC;
-  
 
 
+Avg_rating | Product_line   
+_____________________________
+6.838      | Home and lifestyle
+6.916	   | Sports and travel
+6.925	   | Electronic accessories
+7.003	   | Health and beauty
+7.029	   | Fashion accessories
+7.113	   | Food and beverages
+
+
+
+
+	
 -- CUSTOMER QUERIES
 -- Customer type that pays the most VAT
+	
 SELECT Customer_type,SUM(VAT) AS VAT_Sum
 FROM walmart_sales
 GROUP BY Customer_type
 ORDER BY VAT_Sum DESC;
+
+customer_type | VAT_Sum
+_________________________
+Member	      |7820.1640
+Normal	      |7559.2050
+
+	
 -- ANSWER: Member customer types pays the most VAT
 
 -- Customer_type that generates the most revenue
@@ -271,6 +326,11 @@ SELECT Customer_type,SUM(Total) AS Revenue
 FROM walmart_sales
 GROUP BY Customer_type
 ORDER BY Revenue DESC;
+
+Customer_type | Revenue
+_______________________
+Member	      | 164223.506
+Normal	      | 158743.360
 -- Customer type generates the highest revenue
 
 -- Sales made at each time of the day
@@ -278,12 +338,25 @@ SELECT Time_of_day,SUM(Quantity) AS Sales
 FROM walmart_sales
 GROUP BY Time_of_day
 ORDER BY Sales DESC;
+_______________________
+Time_of_day | Sales
+_______________________
+Morning	    | 1038
+Evening	    | 2361
+Afternoon   | 2111
 
 -- Gender of the customer
 SELECT COUNT(Gender) AS Gender_count,Gender,Customer_type
 FROM walmart_sales
 GROUP BY Gender,Customer_type
 ORDER BY Gender;
+________________________________________
+Gender_count | Gender  | Customer_type
+________________________________________
+261	     | Female  | Member
+240	     | Female  | Normal
+240	     | Male    | Member
+259	     | Male    | Normal
 
 -- Day of week having the best average rating 
 SELECT AVG(Rating) AS Avg_rating,day_name
@@ -291,10 +364,26 @@ FROM walmart_sales
 GROUP BY day_name
 ORDER BY Avg_rating  DESC;
 
+Avg_rating|  day_name
+____________________
+7.15360   | Monday
+7.07626	  | Friday
+7.01128	  | Sunday
+7.00316	  | Tuesday
+6.90183   | Saturday
+6.88986   | Thursday
+6.80559	  | Wednesday
+
 -- Time of the day customer give the best rating
 SELECT AVG(Rating) AS Avg_Rating,Time_of_day
 FROM walmart_sales
 GROUP BY Time_of_day;
+
+Avg_rating | Time_of_day
+___________________________
+6.92685	   | Evening
+7.03130	   | Afternoon
+6.96073	   | Morning
 
 -- Gender dsitribution for each branch
 SELECT COUNT(Gender) AS Gender_Count,Gender, Branch
@@ -302,18 +391,24 @@ FROM walmart_sales
 GROUP BY Branch,Gender
 ORDER BY Branch ;
 
+________________________________________
+Gender_count | Gender  | Branch
+________________________________________
+161	     | Female  | A
+179          | Male    | A
+162	     | Female  | B
+170	     | Male    | B
+178	     | Female  | C
+150	     | Male    | C
+
+
 -- Customer type that buys the most
 SELECT Customer_type,SUM(Quantity) AS Purchase_power
 FROM walmart_sales
 GROUP BY Customer_type
 ORDER BY Purchase_power DESC;
 
-ALTER TABLE walmart_analysis.walmart_sales ADD Product_Type VARCHAR(20);
-UPDATE walmart_sales
-SET Product_Type = 
-(CASE WHEN Unit_price < 25.5 THEN "Less Expensive"
-WHEN Unit_price BETWEEN 25.5 AND 60 THEN "Expensive"
-ELSE  "More Expensive"
-END);
-
-
+Customer_type | Purchase_power |
+__________________________________
+Member	      | 2785
+Normal	      | 2725
