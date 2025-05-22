@@ -5,7 +5,7 @@ This project analyzes the sales data of walmart and it is keen to give key insig
 
 ## Table of Contents.
 - [Data Sources](#data-sources)
-- [Data Cleaning and Modification](#data-cleaning-modification)
+- [Data Cleaning and Modification](#Data-Cleaning-Modification)
 - [Exploratory Analysis](#Exploratory-Analysis)
 - [Insights from data](#Insight-from-data)
 - [Conclusion](#Conclusion)
