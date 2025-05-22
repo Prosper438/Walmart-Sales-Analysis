@@ -20,6 +20,7 @@ Below are the list of new columns added in the existing data with MySQL.
 - Month = Gives month date from the date column
 - Day_name = Extracts the day name from the date column
 Modifications were also made on the dataset by changing the column name  for the Total column to Revenue.
+The data was loaded into MS Excel from MySQL with the aid of ODBC, which is then formatted as a table in microsoft excel.
 
 ## Exploratory Analysis.
 From the analysis from the data,these questions was asked.
@@ -36,5 +37,8 @@ From the analysis of this data, the following insight can be gotten
 - Generally, by customer type, members generate more profits than the normal customer, only in some cases which narrows down to month and city that the opposite happens.
 - From the dashboard, we could see that the profitable time of the day is evening.
 - Concerning the payment method, E wallet was the most used payment method and Credit card was the least used.
--  
+
+
+## Recommendations
+-
 
