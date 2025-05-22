@@ -32,5 +32,9 @@ and alot more which answers will be available in the SQL section of this reposit
 
 ## Insights from data.
 From the analysis of this data, the following insight can be gotten
-- 
+- The most expensive products generates more than 55% of the total revenue, the most which is the Fashion accessories product line.
+- Generally, by customer type, members generate more profits than the normal customer, only in some cases which narrows down to month and city that the opposite happens.
+- From the dashboard, we could see that the profitable time of the day is evening.
+- Concerning the payment method, E wallet was the most used payment method and Credit card was the least used.
+-  
 
